@@ -54,9 +54,12 @@ const prompts = [
 
 const init = async () => {
     try {
+        // Return the users answers as parameters and create SVG object.
         const answer = await inquirer.prompt(prompts);
         const SVGFile = createImage(answer);
-        await fs.writeFile("./examples/logo.svg", SVGFile);
+
+        // Write to file using the logo shape as the filename
+        await fs.writeFile(`./examples/${answer.shape}.svg`, SVGFile);
         console.log('Operation Succesful');
     } catch (error) {
         console.log(error);
