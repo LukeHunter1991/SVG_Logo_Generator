@@ -60,7 +60,7 @@ const init = async () => {
 
         // Write to file using the logo shape as the filename
         await fs.writeFile(`./examples/${answer.shape}.svg`, SVGFile);
-        console.log('Operation Succesful');
+        console.log(`Created ${answer.shape}.svg`);
     } catch (error) {
         console.log(error);
     }
