@@ -15,7 +15,7 @@ function createImage(data) {
     if (text.length < 1 || text.length > 3 || (/\s/).test(text)) { throw new Error('Please check text input'); };
 
     // Set up new shape with predefined object from shapes.
-    newShape = new shapes[shape[0].toUpperCase() + shape.slice(1)](shapeColor, text, textColor);
+    newShape = new shapes[shape](shapeColor, text.toUpperCase(), textColor);
 
     // Add shape color
     newShape.setColor(shapeColor);
@@ -42,7 +42,7 @@ const prompts = [
         type: "list",
         message: "Choose a shape",
         name: "shape",
-        choices: ["circle", "triangle", "square"],
+        choices: ["Circle", "Triangle", "Square"],
     },
     // get shape color from user
     {
